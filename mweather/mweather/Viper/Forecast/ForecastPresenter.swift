@@ -9,13 +9,10 @@
 import Foundation
 
 protocol ForecastPresenter: class {
-    func cities() -> [ForecastPresenterCityModel]
+    
     var view: ForecastView { get }
+    func cities() -> [String]
     func openCities()
-}
-
-protocol ForecastPresenterCityModel {
-   
 }
 
 extension Dependencies {
@@ -36,8 +33,8 @@ fileprivate class Presenter: ForecastPresenter {
         view.presenter = self
     }
     
-    func cities() -> [ForecastPresenterCityModel] {
-        return [Model(), Model(), Model()]
+    func cities() -> [String] {
+        return ["", "", ""]
     }
     
     func openCities() {
@@ -45,4 +42,3 @@ fileprivate class Presenter: ForecastPresenter {
     }
 }
 
-fileprivate struct Model: ForecastPresenterCityModel {}

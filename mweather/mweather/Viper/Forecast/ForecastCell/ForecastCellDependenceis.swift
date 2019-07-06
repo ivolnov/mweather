@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ForecastCellDependencies {
+    func forecastCellPresenter() -> ForecastCellPresenter
     func forecastCellView() -> ForecastCellView
 }
 

@@ -18,13 +18,19 @@ class ForecastCell: UICollectionViewCell {
         return nil
     }
     
+    private var presenter: ForecastCellPresenter?
+    
     var dependencies: ForecastCellDependencies? {
         didSet {
             if let _ = oldValue { return }
-            view = dependencies?.forecastCellView()
-            view?.add(to: self)
+            presenter = dependencies?.forecastCellPresenter()
+            presenter?.view.add(to: self)
         }
     }
     
-    private var view: ForecastCellView?
+    var city = "" {
+        didSet {
+            presenter?.load(for: city)
+        }
+    }
 }

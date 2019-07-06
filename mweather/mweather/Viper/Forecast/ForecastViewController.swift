@@ -48,11 +48,11 @@ extension ForecastViewController:
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForecastCell", for: indexPath) as! ForecastCell
+        let city = presenter.cities().get(at: indexPath.row)
         cell.dependencies = cellDependencies
+        cell.city = city ?? ""
         return cell
     }
-    
-
 }
 
 extension ForecastViewController {

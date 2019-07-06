@@ -50,8 +50,11 @@ fileprivate class View: ForecastView {
     
     func add(to root: UIView) {
         
+        let delimeter = UIView()
+        
         root.addSubview(activityIndicator)
         root.addSubview(collectionView)
+        root.addSubview(delimeter)
         root.addSubview(footer)
         
         footer.addSubview(buttonCities)
@@ -65,6 +68,13 @@ fileprivate class View: ForecastView {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(root.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
+        }
+        
+        delimeter.backgroundColor = .platinum
+        delimeter.snp.makeConstraints { make in
+            make.trailing.leading.equalToSuperview()
+            make.bottom.equalTo(footer.snp.top)
+            make.height.equalTo(1)
         }
         
         footer.backgroundColor = .clear
