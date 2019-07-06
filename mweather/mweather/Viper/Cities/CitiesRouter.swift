@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CitiesRouter {
-    
+    func dismiss()
 }
 
 extension Dependencies {
@@ -18,4 +18,12 @@ extension Dependencies {
     }
 }
 
-extension Router: CitiesRouter {}
+extension Router: CitiesRouter {
+    func dismiss() {
+        app()?
+            .window?
+            .rootViewController?
+            .presentedViewController?
+            .dismiss(animated: true)
+    }
+}

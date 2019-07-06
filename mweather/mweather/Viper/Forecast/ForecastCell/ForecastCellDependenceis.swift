@@ -14,9 +14,7 @@ protocol ForecastCellDependencies {
 }
 
 
-extension Dependencies: ForecastCellDependencies {}
-
-extension Dependencies {
+extension Dependencies: ForecastCellDependencies {
     func forecastCellDependencies() -> ForecastCellDependencies {
         return self
     }

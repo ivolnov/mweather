@@ -9,6 +9,8 @@
 import Foundation
 
 protocol CitiesDependencies {
+    func citiesAddCellDependencies() -> CitiesAddCellDependencies
+    func citiesCellDependencies() -> CitiesCellDependencies
     func citiesInteractor() -> CitiesInteractor
     func citiesPresenter() -> CitiesPresenter
     func citiesRouter() -> CitiesRouter

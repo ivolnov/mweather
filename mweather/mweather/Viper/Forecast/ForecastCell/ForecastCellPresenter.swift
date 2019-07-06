@@ -31,18 +31,12 @@ fileprivate class Presenter: ForecastCellPresenter {
     }
     
     func refresh(for city: String) {
-        
+        view.set(days: hardcode)
+        view.hideRefreshControl()
     }
     
     func load(for city: String) {
-        let days:[ ForecastCellViewModel] = [
-            Model(icon: .rain, temperature: "20º", weather: "rain", city: "London", day: "Tuesday"),
-            Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Wednesday"),
-            Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Thursday"),
-            Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Friday"),
-            Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Saturday")
-        ]
-        view.set(days: days)
+        view.set(days: hardcode)
     }
 }
 
@@ -54,3 +48,11 @@ fileprivate struct Model: ForecastCellViewModel {
     let city: String
     let day: String
 }
+
+fileprivate let hardcode: [ForecastCellViewModel] = [
+    Model(icon: .rain, temperature: "20º", weather: "rain", city: "London", day: "Tuesday"),
+    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Wednesday"),
+    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Thursday"),
+    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Friday"),
+    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Saturday")
+]

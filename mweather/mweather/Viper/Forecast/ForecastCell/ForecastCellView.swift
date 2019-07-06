@@ -11,6 +11,7 @@ import SnapKit
 protocol ForecastCellView {
     var presenter: ForecastCellPresenter? { get set }
     func set(days: [ForecastCellViewModel])
+    func hideRefreshControl()
     func add(to: UIView)
 }
 
@@ -66,29 +67,34 @@ fileprivate class View: ForecastCellView {
     init() {
         refreshControl = UIRefreshControl()
         
-        labelWeather = UILabel()
-        labelToday = UILabel()
-        labelCity = UILabel()
         
-        labelTodayValue = UILabel()
-        labelTemperature = UILabel()
+        labelWeather = UILabel.size(16, .cadet, .regular)
+        labelToday = UILabel.size(16, .cadet, .regular)
+        labelCity = UILabel.size(24, .cadet, .regular)
+        
+        labelTodayValue = UILabel.size(16, .black, .regular)
+        labelTemperature = UILabel.size(64, .black, .regular)
         icon = UIImageView()
         
-        labelFirstTemperature = UILabel()
+        labelFirstTemperature = UILabel.size(16, .black, .regular)
+        labelFirstDay = UILabel.size(16, .cadet, .regular)
         iconFirst = UIImageView()
-        labelFirstDay = UILabel()
         
-        labelSecondTemperature = UILabel()
+        labelSecondTemperature = UILabel.size(16, .black, .regular)
+        labelSecondDay = UILabel.size(16, .cadet, .regular)
         iconSecond = UIImageView()
-        labelSecondDay = UILabel()
         
-        labelThirdTemperature = UILabel()
+        labelThirdTemperature = UILabel.size(16, .black, .regular)
+        labelThirdDay = UILabel.size(16, .cadet, .regular)
         iconThird = UIImageView()
-        labelThirdDay = UILabel()
         
-        labelFourthTemperature = UILabel()
+        labelFourthTemperature = UILabel.size(16, .black, .regular)
+        labelFourthDay = UILabel.size(16, .cadet, .regular)
         iconFourth = UIImageView()
-        labelFourthDay = UILabel()
+    }
+    
+    func hideRefreshControl() {
+        refreshControl.endRefreshing()
     }
     
     func set(days: [ForecastCellViewModel]) {
@@ -199,17 +205,18 @@ fileprivate class View: ForecastCellView {
             make.leading.equalToSuperview().offset(labelHorizontalOffset)
             make.top.equalTo(labelWeather).offset(labelVerticlaOffset)
         }
-
-        labelToday.textAlignment = .left
-        labelToday.snp.makeConstraints { make in
+        
+        labelTodayValue.textAlignment = .left
+        labelTodayValue.snp.makeConstraints { make in
             make.top.equalTo(labelTemperature.snp.bottom).offset(2 * labelVerticlaOffset)
             make.leading.equalToSuperview().offset(labelHorizontalOffset)
             make.bottom.equalToSuperview().inset(labelVerticlaOffset)
+            
         }
 
-        labelTodayValue.textAlignment = .left
-        labelTodayValue.snp.makeConstraints { make in
-            make.leading.equalTo(labelToday.snp.trailing).offset(labelHorizontalOffset / 2)
+        labelToday.textAlignment = .left
+        labelToday.snp.makeConstraints { make in
+            make.leading.equalTo(labelTodayValue.snp.trailing).offset(labelHorizontalOffset / 2)
             make.top.equalTo(labelTemperature.snp.bottom).offset(2 * labelVerticlaOffset)
             make.bottom.equalToSuperview().inset(labelVerticlaOffset)
         }

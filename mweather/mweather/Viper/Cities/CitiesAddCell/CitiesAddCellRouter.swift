@@ -1,5 +1,5 @@
 //
-//  ForecastRouter.swift
+//  CitiesAddCellRouter.swift
 //  mweather
 //
 //  Created by ivan volnov on 7/6/19.
@@ -9,23 +9,23 @@
 import Foundation
 
 
-protocol ForecastRouter {
-    func openCities()
+protocol CitiesAddCellRouter {
+    func showSearch()
 }
 
 extension Dependencies {
-    func forecastRouter() -> ForecastRouter {
+    func citiesAddCellRouter() -> CitiesAddCellRouter {
         return Router.shared
     }
 }
 
-extension Router: ForecastRouter {
-    
-    func openCities() {
-        let vc = CitiesViewController(dependencies: Dependencies.shared)
+extension Router: CitiesAddCellRouter {
+    func showSearch() {
+        let vc = SearchViewController(dependencies: Dependencies.shared)
         app()?
             .window?
             .rootViewController?
+            .presentedViewController?
             .present(vc, animated: true)
     }
 }

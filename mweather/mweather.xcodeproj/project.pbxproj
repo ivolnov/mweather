@@ -17,6 +17,14 @@
 		9E4237B122CE922E009A4002 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4237B022CE922E009A4002 /* ForecastView.swift */; };
 		9E4237B322CE925F009A4002 /* ForecastDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4237B222CE925F009A4002 /* ForecastDependencies.swift */; };
 		9E4237B522CE92AD009A4002 /* ForecastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4237B422CE92AD009A4002 /* ForecastPresenter.swift */; };
+		9E7589BE22D11F4C0007655E /* CitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589BD22D11F4C0007655E /* CitiesCell.swift */; };
+		9E7589C022D11F5D0007655E /* CitiesCellDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589BF22D11F5D0007655E /* CitiesCellDependencies.swift */; };
+		9E7589C222D11F650007655E /* CitiesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589C122D11F650007655E /* CitiesCellView.swift */; };
+		9E7589C522D122780007655E /* CitiesAddCellDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589C422D122780007655E /* CitiesAddCellDependencies.swift */; };
+		9E7589C722D122870007655E /* CitiesAddCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589C622D122870007655E /* CitiesAddCellView.swift */; };
+		9E7589C922D122930007655E /* CitiesAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589C822D122930007655E /* CitiesAddCell.swift */; };
+		9E7589CB22D122ED0007655E /* CitiesAddCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589CA22D122ED0007655E /* CitiesAddCellPresenter.swift */; };
+		9E7589CD22D123000007655E /* CitiesAddCellRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7589CC22D123000007655E /* CitiesAddCellRouter.swift */; };
 		9ED7E67F22D07E480046DBE6 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E67E22D07E480046DBE6 /* CitiesViewController.swift */; };
 		9ED7E68122D07E520046DBE6 /* CitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E68022D07E520046DBE6 /* CitiesPresenter.swift */; };
 		9ED7E68322D07E6E0046DBE6 /* CitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E68222D07E6E0046DBE6 /* CitiesView.swift */; };
@@ -73,6 +81,14 @@
 		9E4237B022CE922E009A4002 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		9E4237B222CE925F009A4002 /* ForecastDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDependencies.swift; sourceTree = "<group>"; };
 		9E4237B422CE92AD009A4002 /* ForecastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPresenter.swift; sourceTree = "<group>"; };
+		9E7589BD22D11F4C0007655E /* CitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCell.swift; sourceTree = "<group>"; };
+		9E7589BF22D11F5D0007655E /* CitiesCellDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCellDependencies.swift; sourceTree = "<group>"; };
+		9E7589C122D11F650007655E /* CitiesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCellView.swift; sourceTree = "<group>"; };
+		9E7589C422D122780007655E /* CitiesAddCellDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesAddCellDependencies.swift; sourceTree = "<group>"; };
+		9E7589C622D122870007655E /* CitiesAddCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesAddCellView.swift; sourceTree = "<group>"; };
+		9E7589C822D122930007655E /* CitiesAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesAddCell.swift; sourceTree = "<group>"; };
+		9E7589CA22D122ED0007655E /* CitiesAddCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesAddCellPresenter.swift; sourceTree = "<group>"; };
+		9E7589CC22D123000007655E /* CitiesAddCellRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesAddCellRouter.swift; sourceTree = "<group>"; };
 		9ED7E67E22D07E480046DBE6 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		9ED7E68022D07E520046DBE6 /* CitiesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesPresenter.swift; sourceTree = "<group>"; };
 		9ED7E68222D07E6E0046DBE6 /* CitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesView.swift; sourceTree = "<group>"; };
@@ -209,9 +225,33 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		9E7589BC22D11F150007655E /* CitiesCell */ = {
+			isa = PBXGroup;
+			children = (
+				9E7589BF22D11F5D0007655E /* CitiesCellDependencies.swift */,
+				9E7589C122D11F650007655E /* CitiesCellView.swift */,
+				9E7589BD22D11F4C0007655E /* CitiesCell.swift */,
+			);
+			path = CitiesCell;
+			sourceTree = "<group>";
+		};
+		9E7589C322D122620007655E /* CitiesAddCell */ = {
+			isa = PBXGroup;
+			children = (
+				9E7589C422D122780007655E /* CitiesAddCellDependencies.swift */,
+				9E7589CA22D122ED0007655E /* CitiesAddCellPresenter.swift */,
+				9E7589CC22D123000007655E /* CitiesAddCellRouter.swift */,
+				9E7589C622D122870007655E /* CitiesAddCellView.swift */,
+				9E7589C822D122930007655E /* CitiesAddCell.swift */,
+			);
+			path = CitiesAddCell;
+			sourceTree = "<group>";
+		};
 		9ED7E67D22D07E370046DBE6 /* Cities */ = {
 			isa = PBXGroup;
 			children = (
+				9E7589C322D122620007655E /* CitiesAddCell */,
+				9E7589BC22D11F150007655E /* CitiesCell */,
 				9ED7E67E22D07E480046DBE6 /* CitiesViewController.swift */,
 				9ED7E68422D07E7A0046DBE6 /* CitiesDependencies.swift */,
 				9ED7E68022D07E520046DBE6 /* CitiesPresenter.swift */,
@@ -442,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E7589C922D122930007655E /* CitiesAddCell.swift in Sources */,
 				9ED7E6B922D0BEED0046DBE6 /* ForecastCellViewModelIcon.swift in Sources */,
 				9E4237AD22CE91EC009A4002 /* Dependencies.swift in Sources */,
 				9ED7E69822D07F190046DBE6 /* CitiesInteractor.swift in Sources */,
@@ -452,12 +493,15 @@
 				9ED7E69622D07F0A0046DBE6 /* SearchInteractor.swift in Sources */,
 				9ED7E6B722D0B1220046DBE6 /* Array+Utils.swift in Sources */,
 				9E4237AB22CE9140009A4002 /* Router.swift in Sources */,
+				9E7589C722D122870007655E /* CitiesAddCellView.swift in Sources */,
+				9E7589C222D11F650007655E /* CitiesCellView.swift in Sources */,
 				9E4237B122CE922E009A4002 /* ForecastView.swift in Sources */,
 				9E42378B22CE876F009A4002 /* AppDelegate.swift in Sources */,
 				9ED7E68322D07E6E0046DBE6 /* CitiesView.swift in Sources */,
 				9ED7E6A622D080B30046DBE6 /* Forecast.swift in Sources */,
 				9ED7E68E22D07ED20046DBE6 /* SearchDependencies.swift in Sources */,
 				9ED7E6B122D0A0AD0046DBE6 /* UIButton+Utils.swift in Sources */,
+				9E7589C522D122780007655E /* CitiesAddCellDependencies.swift in Sources */,
 				9ED7E69222D07EEC0046DBE6 /* SearchRouter.swift in Sources */,
 				9ED7E6B322D0A28D0046DBE6 /* UIColor+Utils.swift in Sources */,
 				9ED7E68522D07E7A0046DBE6 /* CitiesDependencies.swift in Sources */,
@@ -465,9 +509,13 @@
 				9ED7E69422D07EF50046DBE6 /* SearchView.swift in Sources */,
 				9ED7E6B522D0AC6E0046DBE6 /* ForecastCellPresenter.swift in Sources */,
 				9ED7E6BB22D0F5070046DBE6 /* UILabel+Utils.swift in Sources */,
+				9E7589CD22D123000007655E /* CitiesAddCellRouter.swift in Sources */,
+				9E7589C022D11F5D0007655E /* CitiesCellDependencies.swift in Sources */,
 				9ED7E6A422D080750046DBE6 /* City.swift in Sources */,
 				9ED7E68C22D07EC80046DBE6 /* SearchViewController.swift in Sources */,
+				9E7589CB22D122ED0007655E /* CitiesAddCellPresenter.swift in Sources */,
 				9ED7E67F22D07E480046DBE6 /* CitiesViewController.swift in Sources */,
+				9E7589BE22D11F4C0007655E /* CitiesCell.swift in Sources */,
 				9ED7E68122D07E520046DBE6 /* CitiesPresenter.swift in Sources */,
 				9ED7E68922D07E950046DBE6 /* ForecastRouter.swift in Sources */,
 				9ED7E69D22D07FCA0046DBE6 /* CitiesRepository.swift in Sources */,
