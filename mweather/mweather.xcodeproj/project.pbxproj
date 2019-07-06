@@ -35,6 +35,11 @@
 		9ED7E6A022D07FEE0046DBE6 /* CitiesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E69F22D07FEE0046DBE6 /* CitiesApi.swift */; };
 		9ED7E6A422D080750046DBE6 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6A322D080750046DBE6 /* City.swift */; };
 		9ED7E6A622D080B30046DBE6 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6A522D080B30046DBE6 /* Forecast.swift */; };
+		9ED7E6A922D08FDA0046DBE6 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6A822D08FDA0046DBE6 /* ForecastCell.swift */; };
+		9ED7E6AB22D08FEB0046DBE6 /* ForecastCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6AA22D08FEB0046DBE6 /* ForecastCellView.swift */; };
+		9ED7E6AD22D091C00046DBE6 /* ForecastCellDependenceis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6AC22D091C00046DBE6 /* ForecastCellDependenceis.swift */; };
+		9ED7E6B122D0A0AD0046DBE6 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6B022D0A0AD0046DBE6 /* UIButton+Utils.swift */; };
+		9ED7E6B322D0A28D0046DBE6 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6B222D0A28D0046DBE6 /* UIColor+Utils.swift */; };
 		C5544DED50272B894F1D255A /* Pods_mweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B09623F7369C9FADD7B11C /* Pods_mweather.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +87,11 @@
 		9ED7E69F22D07FEE0046DBE6 /* CitiesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesApi.swift; sourceTree = "<group>"; };
 		9ED7E6A322D080750046DBE6 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		9ED7E6A522D080B30046DBE6 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		9ED7E6A822D08FDA0046DBE6 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		9ED7E6AA22D08FEB0046DBE6 /* ForecastCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCellView.swift; sourceTree = "<group>"; };
+		9ED7E6AC22D091C00046DBE6 /* ForecastCellDependenceis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCellDependenceis.swift; sourceTree = "<group>"; };
+		9ED7E6B022D0A0AD0046DBE6 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
+		9ED7E6B222D0A28D0046DBE6 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		A2BEC5A6AA2F776A25A5941E /* Pods-mweather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mweather.release.xcconfig"; path = "Pods/Target Support Files/Pods-mweather/Pods-mweather.release.xcconfig"; sourceTree = "<group>"; };
 		D3DD59B13769BCD9DC51E9D8 /* Pods-mweather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mweather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mweather/Pods-mweather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,11 +155,12 @@
 		9E42378922CE876F009A4002 /* mweather */ = {
 			isa = PBXGroup;
 			children = (
-				9ED7E6A222D0801C0046DBE6 /* viper */,
-				9ED7E69B22D07F660046DBE6 /* repository */,
-				9ED7E6A122D080030046DBE6 /* model */,
-				9ED7E69E22D07FD00046DBE6 /* api */,
-				9E4237AF22CE9211009A4002 /* app */,
+				9ED7E6A222D0801C0046DBE6 /* Viper */,
+				9ED7E69B22D07F660046DBE6 /* Repository */,
+				9ED7E6A122D080030046DBE6 /* Model */,
+				9ED7E69E22D07FD00046DBE6 /* Api */,
+				9E4237AF22CE9211009A4002 /* App */,
+				9ED7E6AF22D0A0990046DBE6 /* Utils */,
 				9E42379322CE8770009A4002 /* LaunchScreen.storyboard */,
 				9E42379122CE8770009A4002 /* Assets.xcassets */,
 				9E42379622CE8770009A4002 /* Info.plist */,
@@ -166,9 +177,10 @@
 			path = mweatherTests;
 			sourceTree = "<group>";
 		};
-		9E4237AE22CE91FF009A4002 /* forecast */ = {
+		9E4237AE22CE91FF009A4002 /* Forecast */ = {
 			isa = PBXGroup;
 			children = (
+				9ED7E6A722D08FBD0046DBE6 /* ForecastCell */,
 				9E42378C22CE876F009A4002 /* ForecastViewController.swift */,
 				9E4237B222CE925F009A4002 /* ForecastDependencies.swift */,
 				9E4237B422CE92AD009A4002 /* ForecastPresenter.swift */,
@@ -176,20 +188,20 @@
 				9ED7E68822D07E950046DBE6 /* ForecastRouter.swift */,
 				9E4237B022CE922E009A4002 /* ForecastView.swift */,
 			);
-			path = forecast;
+			path = Forecast;
 			sourceTree = "<group>";
 		};
-		9E4237AF22CE9211009A4002 /* app */ = {
+		9E4237AF22CE9211009A4002 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				9E4237AC22CE91EC009A4002 /* Dependencies.swift */,
 				9E42378A22CE876F009A4002 /* AppDelegate.swift */,
 				9E4237AA22CE9140009A4002 /* Router.swift */,
 			);
-			path = app;
+			path = App;
 			sourceTree = "<group>";
 		};
-		9ED7E67D22D07E370046DBE6 /* cities */ = {
+		9ED7E67D22D07E370046DBE6 /* Cities */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7E67E22D07E480046DBE6 /* CitiesViewController.swift */,
@@ -199,10 +211,10 @@
 				9ED7E68622D07E810046DBE6 /* CitiesRouter.swift */,
 				9ED7E68222D07E6E0046DBE6 /* CitiesView.swift */,
 			);
-			path = cities;
+			path = Cities;
 			sourceTree = "<group>";
 		};
-		9ED7E68A22D07EAC0046DBE6 /* search */ = {
+		9ED7E68A22D07EAC0046DBE6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7E68B22D07EC80046DBE6 /* SearchViewController.swift */,
@@ -212,42 +224,61 @@
 				9ED7E69122D07EEC0046DBE6 /* SearchRouter.swift */,
 				9ED7E69322D07EF50046DBE6 /* SearchView.swift */,
 			);
-			path = search;
+			path = Search;
 			sourceTree = "<group>";
 		};
-		9ED7E69B22D07F660046DBE6 /* repository */ = {
+		9ED7E69B22D07F660046DBE6 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7E69C22D07FCA0046DBE6 /* CitiesRepository.swift */,
 			);
-			path = repository;
+			path = Repository;
 			sourceTree = "<group>";
 		};
-		9ED7E69E22D07FD00046DBE6 /* api */ = {
+		9ED7E69E22D07FD00046DBE6 /* Api */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7E69F22D07FEE0046DBE6 /* CitiesApi.swift */,
 			);
-			path = api;
+			path = Api;
 			sourceTree = "<group>";
 		};
-		9ED7E6A122D080030046DBE6 /* model */ = {
+		9ED7E6A122D080030046DBE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7E6A522D080B30046DBE6 /* Forecast.swift */,
 				9ED7E6A322D080750046DBE6 /* City.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		9ED7E6A222D0801C0046DBE6 /* viper */ = {
+		9ED7E6A222D0801C0046DBE6 /* Viper */ = {
 			isa = PBXGroup;
 			children = (
-				9E4237AE22CE91FF009A4002 /* forecast */,
-				9ED7E68A22D07EAC0046DBE6 /* search */,
-				9ED7E67D22D07E370046DBE6 /* cities */,
+				9E4237AE22CE91FF009A4002 /* Forecast */,
+				9ED7E68A22D07EAC0046DBE6 /* Search */,
+				9ED7E67D22D07E370046DBE6 /* Cities */,
 			);
-			path = viper;
+			path = Viper;
+			sourceTree = "<group>";
+		};
+		9ED7E6A722D08FBD0046DBE6 /* ForecastCell */ = {
+			isa = PBXGroup;
+			children = (
+				9ED7E6AC22D091C00046DBE6 /* ForecastCellDependenceis.swift */,
+				9ED7E6AA22D08FEB0046DBE6 /* ForecastCellView.swift */,
+				9ED7E6A822D08FDA0046DBE6 /* ForecastCell.swift */,
+			);
+			path = ForecastCell;
+			sourceTree = "<group>";
+		};
+		9ED7E6AF22D0A0990046DBE6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9ED7E6B022D0A0AD0046DBE6 /* UIButton+Utils.swift */,
+				9ED7E6B222D0A28D0046DBE6 /* UIColor+Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,7 +433,9 @@
 				9E4237AD22CE91EC009A4002 /* Dependencies.swift in Sources */,
 				9ED7E69822D07F190046DBE6 /* CitiesInteractor.swift in Sources */,
 				9ED7E69A22D07F280046DBE6 /* ForecastInteractor.swift in Sources */,
+				9ED7E6AD22D091C00046DBE6 /* ForecastCellDependenceis.swift in Sources */,
 				9E42378D22CE876F009A4002 /* ForecastViewController.swift in Sources */,
+				9ED7E6AB22D08FEB0046DBE6 /* ForecastCellView.swift in Sources */,
 				9ED7E69622D07F0A0046DBE6 /* SearchInteractor.swift in Sources */,
 				9E4237AB22CE9140009A4002 /* Router.swift in Sources */,
 				9E4237B122CE922E009A4002 /* ForecastView.swift in Sources */,
@@ -410,7 +443,9 @@
 				9ED7E68322D07E6E0046DBE6 /* CitiesView.swift in Sources */,
 				9ED7E6A622D080B30046DBE6 /* Forecast.swift in Sources */,
 				9ED7E68E22D07ED20046DBE6 /* SearchDependencies.swift in Sources */,
+				9ED7E6B122D0A0AD0046DBE6 /* UIButton+Utils.swift in Sources */,
 				9ED7E69222D07EEC0046DBE6 /* SearchRouter.swift in Sources */,
+				9ED7E6B322D0A28D0046DBE6 /* UIColor+Utils.swift in Sources */,
 				9ED7E68522D07E7A0046DBE6 /* CitiesDependencies.swift in Sources */,
 				9ED7E68722D07E810046DBE6 /* CitiesRouter.swift in Sources */,
 				9ED7E69422D07EF50046DBE6 /* SearchView.swift in Sources */,
@@ -423,6 +458,7 @@
 				9E4237B522CE92AD009A4002 /* ForecastPresenter.swift in Sources */,
 				9ED7E69022D07EDF0046DBE6 /* SearchPresenter.swift in Sources */,
 				9ED7E6A022D07FEE0046DBE6 /* CitiesApi.swift in Sources */,
+				9ED7E6A922D08FDA0046DBE6 /* ForecastCell.swift in Sources */,
 				9E4237B322CE925F009A4002 /* ForecastDependencies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

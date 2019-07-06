@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol ForecastRouter {
-    
+    func openCities()
 }
 
 extension Dependencies {
@@ -21,4 +21,8 @@ extension Dependencies {
 
 extension Router: ForecastRouter {
     
+    func openCities() {
+        let vc = CitiesViewController(dependencies: Dependencies.shared)
+        app()?.window?.rootViewController?.present(vc, animated: true)
+    }
 }

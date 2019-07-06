@@ -20,6 +20,7 @@ extension Router {
     }
     
     func alert(error: Error) {
+        
         let alert = UIAlertController(
             title: ":(",
             message: "Что-то пошло не так...",
