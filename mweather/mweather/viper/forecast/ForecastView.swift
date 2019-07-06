@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  ForecastView.swift
 //  mweather
 //
 //  Created by ivan volnov on 7/4/19.
@@ -8,18 +8,21 @@
 
 import UIKit
 
-protocol MainView {
+protocol ForecastView {
+    var presenter: ForecastPresenter? { get set }
     func add(to: UIView)
 }
 
 extension Dependencies {
-    func mainView() -> MainView {
+    func forecastView() -> ForecastView {
         return View()
     }
 }
 
 
-fileprivate class View: MainView {
+fileprivate class View: ForecastView {
+    
+    weak var presenter: ForecastPresenter?
     
     func add(to root: UIView) {
         root.backgroundColor = .red

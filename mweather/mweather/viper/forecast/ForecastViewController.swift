@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  ForecastViewController.swift
 //  mweather
 //
 //  Created by ivan volnov on 7/4/19.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class ForecastViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
     
-    init(dependencies: MainDependencies) {
-        self.presenter = dependencies.mainPresenter()
+    init(dependencies: ForecastDependencies) {
+        self.presenter = dependencies.forecastPresenter()
         super.init(nibName: nil, bundle: nil)
     }
     
-    private let presenter: MainPresenter
+    private let presenter: ForecastPresenter
     
     override func viewDidLoad() {
         super.viewDidLoad()

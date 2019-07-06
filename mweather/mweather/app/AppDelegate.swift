@@ -29,7 +29,7 @@ protocol AppRouter {
 extension Router: AppRouter {
     func start() {
         app()?.window = UIWindow(frame: UIScreen.main.bounds)
-        app()?.window?.rootViewController = MainViewController(dependencies: Dependencies.shared)
+        app()?.window?.rootViewController = ForecastViewController(dependencies: Dependencies.shared)
         app()?.window?.makeKeyAndVisible()
     }
 }
