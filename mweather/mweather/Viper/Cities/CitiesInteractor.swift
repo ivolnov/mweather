@@ -10,6 +10,7 @@ import Foundation
 
 protocol CitiesInteractor {
     func cities(completion: @escaping (Result<[CitiesInteractorCityModel], Error>) -> ())
+    func remove(_ model: CitiesInteractorCityModel)
 }
 
 protocol CitiesInteractorCityModel {
@@ -42,9 +43,14 @@ fileprivate class Interactor: CitiesInteractor {
         self.completion = completion
         repository.add(listener: self)
     }
+    
+    func remove(_ model: CitiesInteractorCityModel) {
+        repository.delete(city: model.name)
+    }
 }
 
 extension Interactor: CitiesRepositoryListener {
+    
     
     func citiesRepositoryFailure(with error: Error) {
         completion?(.failure(error))

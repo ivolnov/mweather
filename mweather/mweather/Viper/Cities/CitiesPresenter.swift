@@ -58,9 +58,9 @@ fileprivate class Presenter: CitiesPresenter {
     }
     
     func delete(at position: Int) {
-        models = models.dropLast()
-        view.reload()
-        // TODO: remove
+        if let model = models.get(at: position) {
+            interactor.remove(model)
+        }
     }
     
     func refresh() {
