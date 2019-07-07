@@ -15,7 +15,7 @@ protocol CitiesApi {
 
 protocol CitiesApiClient {
     func success(with: CitiesApiCityModel)
-    func failure(with: Error)
+    func citiesApiFailure(with: Error)
     var hash: String { get }
 }
 
@@ -62,7 +62,7 @@ fileprivate class Api: CitiesApi {
         ]
         
         guard let url = self.url(base, params: params) else {
-            client.failure(with: ApiError.invalid(url: "\(base) \(params)"))
+            client.citiesApiFailure(with: ApiError.invalid(url: "\(base) \(params)"))
             return
         }
         
@@ -78,14 +78,14 @@ fileprivate class Api: CitiesApi {
                 let openWeatherModel = try? JSONDecoder().decode(OpenWeatherMapForecast.self, from: data)
                 let apiModel = self?.convert(openWeatherModel)
                 guard let model = apiModel else {
-                    consumer.failure(with: ApiError.parsing)
+                    consumer.citiesApiFailure(with: ApiError.parsing)
                     return
                 }
                 
                 consumer.success(with: model)
                 
             case .failure(let error):
-                consumer.failure(with: error)
+                consumer.citiesApiFailure(with: error)
             }
         }
     }

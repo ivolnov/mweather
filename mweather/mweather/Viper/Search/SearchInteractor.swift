@@ -9,8 +9,8 @@
 import Foundation
 
 protocol SearchInteractor {
+    func save(forecasts: [SearchInteractorForecastModel], completion: @escaping (Result<Void, Error>) -> ())
     func search(city: String, completion: @escaping (Result<[SearchInteractorForecastModel], Error>) -> ())
-    func save(forecasts: [SearchInteractorForecastModel])
 }
 
 protocol SearchInteractorForecastModel {
@@ -32,6 +32,8 @@ fileprivate class Interactor: SearchInteractor {
     var hash: String = "SearchInteractor"
     
     private var searchCompletion: ((Result<[SearchInteractorForecastModel], Error>) -> ())?
+    private var saveCompletion: ((Result<Void, Error>) -> ())?
+    private var city: City?
     
     private let repository: CitiesRepository
     private let api: CitiesApi
@@ -43,13 +45,16 @@ fileprivate class Interactor: SearchInteractor {
     
     func search(city: String, completion: @escaping
         (Result<[SearchInteractorForecastModel], Error>) -> ()) {
-        self.searchCompletion = completion
+        searchCompletion = completion
         api.forget(self) // TODO: not working
         api.search(city, for: self)
     }
     
-    func save(forecasts: [SearchInteractorForecastModel]) {
+    func save(forecasts: [SearchInteractorForecastModel], completion: @escaping (Result<Void, Error>) -> ()) {
+        saveCompletion = completion
         let city = convert(forecasts: forecasts)
+        self.city = city
+        repository.add(listener: self)
         repository.put(city: city)
     }
     
@@ -65,6 +70,28 @@ fileprivate class Interactor: SearchInteractor {
     }
 }
 
+extension Interactor: CitiesRepositoryListener {
+    
+    func citiesRepositoryFailure(with error: Error) {
+        saveCompletion?(.failure(error))
+    }
+    
+    func current(cities: [City]) {
+        
+        guard let city = city else {
+            return
+        }
+        
+        let noRecord = cities
+            .filter { $0.name == city.name }
+            .isEmpty
+        
+        if !noRecord {
+            saveCompletion?(.success(()))
+        }
+    }
+}
+
 extension Interactor: CitiesApiClient {
     
     func success(with model: CitiesApiCityModel) {
@@ -72,7 +99,7 @@ extension Interactor: CitiesApiClient {
         searchCompletion?(.success(forecasts))
     }
     
-    func failure(with error: Error) {
+    func citiesApiFailure(with error: Error) {
         searchCompletion?(.failure(error))
     }
     

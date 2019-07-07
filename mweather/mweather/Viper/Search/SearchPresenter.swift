@@ -69,12 +69,23 @@ fileprivate class Presenter: SearchPresenter {
     }
     
     func add() {
+        
         if let forecasts = forecasts {
-            interactor.save(forecasts: forecasts)
-            view.show(keybord: false)
-            router.closeSearch()
+            
+            interactor.save(forecasts: forecasts) { [weak self] result in
+                
+                switch result {
+                    
+                case .success:
+                    self?.view.show(keybord: false)
+                    self?.router.closeSearch()
+                case .failure(let error):
+                    self?.router.searchAlert(error)
+                }
+                
+                self?.view.show(activity: false)
+            }
         }
-    
     }
     
     private func convert(_ forecasts: [SearchInteractorForecastModel]) -> SearchViewCityModel? {

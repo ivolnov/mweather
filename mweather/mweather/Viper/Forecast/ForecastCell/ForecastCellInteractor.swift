@@ -47,13 +47,13 @@ fileprivate class Interactor: ForecastCellInteractor {
         self.city = named
         repository.add(listener: self)
     }
-    
-    func failure(with error: Error) {
-        completion?(.failure(error))
-    }
 }
 
 extension Interactor: CitiesRepositoryListener {
+    
+    func citiesRepositoryFailure(with error: Error) {
+        completion?(.failure(error))
+    }
     
     func current(cities: [City]) {
         for model in cities {
@@ -86,6 +86,10 @@ extension Interactor: CitiesApiClient {
     func success(with model: CitiesApiCityModel) {
         let city = convert(model)
         repository.put(city: city)
+    }
+    
+    func citiesApiFailure(with error: Error) {
+        completion?(.failure(error))
     }
     
     private func convert(_ model: CitiesApiCityModel) -> City {

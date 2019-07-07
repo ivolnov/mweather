@@ -42,13 +42,13 @@ fileprivate class Interactor: CitiesInteractor {
         self.completion = completion
         repository.add(listener: self)
     }
-    
-    func failure(with error: Error) {
-        completion?(.failure(error))
-    }
 }
 
 extension Interactor: CitiesRepositoryListener {
+    
+    func citiesRepositoryFailure(with error: Error) {
+        completion?(.failure(error))
+    }
     
     func current(cities: [City]) {
         
@@ -66,9 +66,14 @@ extension Interactor: CitiesRepositoryListener {
 
 extension Interactor: CitiesApiClient {
     
+
     func success(with model: CitiesApiCityModel) {
         let city = convert(model)
         repository.put(city: city)
+    }
+    
+    func citiesApiFailure(with error: Error) {
+        completion?(.failure(error))
     }
     
     private func convert(_ model: CitiesApiCityModel) -> City {

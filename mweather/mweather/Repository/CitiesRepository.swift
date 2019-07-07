@@ -15,8 +15,8 @@ protocol CitiesRepository {
 }
 
 protocol CitiesRepositoryListener: class {
+    func citiesRepositoryFailure(with: Error)
     func current(cities: [City])
-    func failure(with: Error)
     var hash: String { get }
 }
 
