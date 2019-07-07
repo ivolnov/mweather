@@ -13,6 +13,7 @@ protocol CitiesPresenter: class {
     var view: CitiesView { get }
     func cities() -> [CitiesPresenterModel]
     func select(at: Int)
+    func delete(at: Int)
     func refresh()
 }
 
@@ -54,6 +55,12 @@ fileprivate class Presenter: CitiesPresenter {
     func select(at position: Int) {
         // TODO: save choice
         router.closeCities()
+    }
+    
+    func delete(at position: Int) {
+        models = models.dropLast()
+        view.reload()
+        // TODO: remove
     }
     
     func refresh() {

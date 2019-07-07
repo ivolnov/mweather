@@ -33,5 +33,4 @@ extension Router: ForecastRouter {
     func forecastAlert(_ error: Error) {
         alert(error: error)
     }
-    
 }

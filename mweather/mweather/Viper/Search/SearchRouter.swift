@@ -10,6 +10,7 @@ import Foundation
 
 
 protocol SearchRouter {
+    func searchAlert(_ error: Error)
     func closeSearch()
 }
 
@@ -29,5 +30,9 @@ extension Router: SearchRouter {
             .presentedViewController?
             .presentedViewController?
             .dismiss(animated: true)
+    }
+    
+    func searchAlert(_ error: Error) {
+        alert(error: error)
     }
 }

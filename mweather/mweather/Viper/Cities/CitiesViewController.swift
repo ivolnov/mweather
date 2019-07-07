@@ -79,6 +79,15 @@ extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
         presenter.select(at: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            presenter.delete(at: indexPath.row)
+        default:
+            ()
+        }
+    }
+    
     private func convert(_ model: CitiesPresenterModel) -> CitiesCellViewModel {
         return Model(temperature: model.temperature, city: model.city)
     }
