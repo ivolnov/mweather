@@ -39,6 +39,7 @@ fileprivate class Interactor: ForecastInteractor {
     
     deinit {
         repository.remove(listener: self)
+        api.forget(self)
     }
     
     func cities(completion: @escaping (Result<[ForecastInteractorCityModel], Error>) -> ()) {
@@ -49,11 +50,6 @@ fileprivate class Interactor: ForecastInteractor {
     func failure(with error: Error) {
         completion?(.failure(error))
     }
-    
-    private func convert(_ city: City) -> ForecastInteractorCityModel {
-        let model = Model(name: city.name)
-        return model
-    }
 }
 
 extension Interactor: CitiesRepositoryListener {
@@ -61,6 +57,7 @@ extension Interactor: CitiesRepositoryListener {
     func current(cities: [City]) {
         
         if coldStart {
+            coldStart = false
             let queries = cities.isEmpty
                 ? defaults
                 : cities.map { $0.name }
@@ -74,6 +71,11 @@ extension Interactor: CitiesRepositoryListener {
         let models = cities.map { convert($0) }
         completion?(.success(models))
     }
+    
+    private func convert(_ city: City) -> ForecastInteractorCityModel {
+        let model = Model(name: city.name)
+        return model
+    }
 }
 
 extension Interactor: CitiesApiClient {
@@ -83,8 +85,15 @@ extension Interactor: CitiesApiClient {
         repository.put(city: city)
     }
     
-    private func convert(_ data: CitiesApiCityModel) -> City {
-        return City(name: "", week: []) //TODO: convert
+    private func convert(_ model: CitiesApiCityModel) -> City {
+        let name = model.name
+        let week = model.forecasts
+            .map {  Forecast(temperature: $0.temperature,
+                             weather: $0.description,
+                             icon: $0.icon,
+                             date: $0.date
+                )}
+        return City(name: name, week: week)
     }
 }
 

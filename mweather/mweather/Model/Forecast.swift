@@ -10,12 +10,8 @@ import Foundation
 
 struct Forecast {
     
-    enum Weather {
-        case sunny
-        case rainy
-    }
-    
-    let temperature: Int
-    let weather: Weather
+    let temperature: Double
+    let weather: String
+    let icon: String
     let date: Date
 }

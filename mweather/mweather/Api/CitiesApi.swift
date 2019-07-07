@@ -47,8 +47,8 @@ fileprivate class Api: CitiesApi {
     
     static let shared = Api()
     
-    private let base = "http://api.openweathermap.org/data/2.5/forecast"
-    private let apiKey = "f38178f19b1736d5a3b71b91f4ca977d"
+    private let base = "https://api.openweathermap.org/data/2.5/forecast"
+    private let apiKey = "f784d261ac97d3a8083143fd83efb876"
     
     private var clients: [String: CitiesApiClient] = [:]
     
@@ -102,7 +102,6 @@ extension Api {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if let error = error {
-                print("UIImageView loading failed with error: \(error) for \(url).")
                 DispatchQueue.main.async { completion(.failure(error)) }
                 return
             }
@@ -112,7 +111,7 @@ extension Api {
                 return
             }
             
-            completion(.success(data))
+            DispatchQueue.main.async { completion(.success(data)) }
         }
         
         task.resume()

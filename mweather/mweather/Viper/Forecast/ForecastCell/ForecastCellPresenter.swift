@@ -22,21 +22,49 @@ extension Dependencies {
 }
 
 fileprivate class Presenter: ForecastCellPresenter {
-    
+    private let interactor: ForecastCellInteractor
+    private let router: ForecastCellRouter
     var view: ForecastCellView
     
     init(dependencies: ForecastCellDependencies) {
+        interactor = dependencies.forecastCellInteractor()
+        router = dependencies.forecastCellRouter()
         view = dependencies.forecastCellView()
         view.presenter = self
     }
     
     func refresh(for city: String) {
-        view.set(days: hardcode)
+        
         view.hideRefreshControl()
     }
     
     func load(for city: String) {
-        view.set(days: hardcode)
+        
+        interactor.city(named: city) { [weak self] result in
+
+            switch result {
+            case .success(let models):
+                if let strong = self {
+                    let days = models.map { strong.convert($0) }
+                    strong.view.set(days: days)
+                }
+            case .failure(let error):
+                self?.router.forecastCellAlert(error)
+            }
+        }
+    }
+    
+    private func convert(_ model: ForecastCellInteractorForecastModel) -> ForecastCellViewModel {
+        let icon = ForecastCellViewModelIcon(rawValue: model.icon) ?? .clearSky
+        let temperature = "\(model.temperature)º"
+        let weather = model.weather.capitalizeFirstLetter()
+        let city = model.city.capitalizeFirstLetter()
+        let day = model.date.dayOfWeek() ?? ""
+        return Model(icon: icon,
+                     temperature: temperature,
+                     weather: weather,
+                     city: city,
+                     day: day)
     }
 }
 
