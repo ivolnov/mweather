@@ -9,6 +9,7 @@
 import Foundation
 
 protocol CitiesRouter {
+    func citiesAlert(_: Error)
     func dismiss()
 }
 
@@ -19,11 +20,16 @@ extension Dependencies {
 }
 
 extension Router: CitiesRouter {
+    
     func dismiss() {
         app()?
             .window?
             .rootViewController?
             .presentedViewController?
             .dismiss(animated: true)
+    }
+    
+    func citiesAlert(_ error: Error) {
+        alert(error: error)
     }
 }

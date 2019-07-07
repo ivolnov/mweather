@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CitiesDependencies {
+protocol CitiesDependencies: SharedDependencies {
     func citiesAddCellDependencies() -> CitiesAddCellDependencies
     func citiesCellDependencies() -> CitiesCellDependencies
     func citiesInteractor() -> CitiesInteractor

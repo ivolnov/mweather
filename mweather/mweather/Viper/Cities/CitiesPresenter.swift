@@ -28,18 +28,27 @@ extension Dependencies {
 }
 
 fileprivate class Presenter: CitiesPresenter {
-   
+    
+    private var models: [CitiesInteractorCityModel] = []
+    private let interactor: CitiesInteractor
     private let router: CitiesRouter
     var view: CitiesView
     
     init(dependencies: CitiesDependencies) {
+        interactor = dependencies.citiesInteractor()
         router = dependencies.citiesRouter()
         view = dependencies.citiesView()
         view.presenter = self
     }
     
     func cities() -> [CitiesPresenterModel] {
-        return hardcode
+        
+        if models.isEmpty {
+            load()
+        }
+        
+        let cities = models.map { convert($0) }
+        return cities
     }
     
     func select(at position: Int) {
@@ -51,17 +60,28 @@ fileprivate class Presenter: CitiesPresenter {
         view.reload()
         view.hideRefreshControl()
     }
+    
+    private func load() {
+        interactor.cities { [weak self] result in
+            
+            switch result {
+            case .success(let models):
+                self?.models = models
+                self?.view.reload()
+            case .failure(let error):
+                self?.router.citiesAlert(error)
+            }
+        }
+    }
+    
+    private func convert(_ model: CitiesInteractorCityModel) -> CitiesPresenterModel {
+        let temperature = "\(Int(model.temperature))º"
+        let city = model.name.capitalizeFirstLetter()
+        return Model(temperature: temperature, city: city)
+    }
 }
 
 fileprivate struct Model: CitiesPresenterModel {
     let temperature: String
     let city: String
 }
-
-fileprivate let hardcode = [
-    Model(temperature: "20º", city: "Moscow"),
-    Model(temperature: "20º", city: "Paris"),
-    Model(temperature: "20º", city: "New York"),
-    Model(temperature: "20º", city: "Loas Angeles"),
-    Model(temperature: "20º", city: "Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu")
-]

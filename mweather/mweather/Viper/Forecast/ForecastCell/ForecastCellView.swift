@@ -100,7 +100,7 @@ fileprivate class View: ForecastCellView {
     func set(days: [ForecastCellViewModel]) {
         if let today = days.get(at: 0) {
             labelTemperature.text = today.temperature
-            labelToday.text = "Сегодня"
+            labelToday.text = "Today"
             labelTodayValue.text = today.day
             labelWeather.text = today.weather
             icon.image = today.icon.image()

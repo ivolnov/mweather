@@ -47,7 +47,7 @@ extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row {
             
-        case cities.count - 1:
+        case cities.count:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CitiesAddCell",
                                                      for: indexPath) as! CitiesAddCell
             cell.dependencies = citiesAddCellDependencies
@@ -72,7 +72,7 @@ extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let cities = presenter.cities()
-        return cities.count
+        return cities.count + 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
