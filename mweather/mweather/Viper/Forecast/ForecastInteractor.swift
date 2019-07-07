@@ -9,16 +9,91 @@
 import Foundation
 
 protocol ForecastInteractor {
-    
+    func cities(completion: @escaping (Result<[ForecastInteractorCityModel], Error>) -> ())
+}
+
+protocol ForecastInteractorCityModel {
+    var name: String { get }
 }
 
 extension Dependencies {
     func forecastInteractor() -> ForecastInteractor {
-        return Interactor()
+        return Interactor(dependencies: self)
     }
 }
 
-
 fileprivate class Interactor: ForecastInteractor {
     
+    var hash: String = "ForecastInteractor"
+    
+    private var completion: ((Result<[ForecastInteractorCityModel], Error>) -> ())?
+    private var coldStart = true
+    
+    private let repository: CitiesRepository
+    private let api: CitiesApi
+    
+    init(dependencies: ForecastDependencies) {
+        repository = dependencies.citiesRepository()
+        api = dependencies.citiesApi()
+    }
+    
+    deinit {
+        repository.remove(listener: self)
+    }
+    
+    func cities(completion: @escaping (Result<[ForecastInteractorCityModel], Error>) -> ()) {
+        self.completion = completion
+        repository.add(listener: self)
+    }
+    
+    func failure(with error: Error) {
+        completion?(.failure(error))
+    }
+    
+    private func convert(_ city: City) -> ForecastInteractorCityModel {
+        let model = Model(name: city.name)
+        return model
+    }
 }
+
+extension Interactor: CitiesRepositoryListener {
+    
+    func current(cities: [City]) {
+        
+        if coldStart {
+            let queries = cities.isEmpty
+                ? defaults
+                : cities.map { $0.name }
+            
+            for query in queries {
+                api.search(query, for: self)
+            }
+        }
+        
+        
+        let models = cities.map { convert($0) }
+        completion?(.success(models))
+    }
+}
+
+extension Interactor: CitiesApiClient {
+    
+    func success(with model: CitiesApiCityModel) {
+        let city = convert(model)
+        repository.put(city: city)
+    }
+    
+    private func convert(_ data: CitiesApiCityModel) -> City {
+        return City(name: "", week: []) //TODO: convert
+    }
+}
+
+fileprivate struct Model: ForecastInteractorCityModel {
+    let name: String
+}
+
+fileprivate let defaults = [
+    "Ulyanovsk",
+    "New York",
+    "Los Angeles"
+]

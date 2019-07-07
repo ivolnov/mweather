@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol ForecastDependencies {
+protocol ForecastDependencies: SharedDependencies {
+    
     func forecastCellDependencies() -> ForecastCellDependencies
     func forecastInteractor() -> ForecastInteractor
     func forecastPresenter() -> ForecastPresenter

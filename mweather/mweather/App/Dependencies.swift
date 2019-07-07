@@ -8,7 +8,15 @@
 
 import Foundation
 
+
 class Dependencies {
     static let shared = Dependencies()
     private init() {}
 }
+
+protocol SharedDependencies {
+    func citiesRepository() -> CitiesRepository
+    func citiesApi() -> CitiesApi
+}
+
+extension Dependencies: SharedDependencies {}

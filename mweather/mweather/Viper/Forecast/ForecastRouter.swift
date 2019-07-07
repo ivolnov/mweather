@@ -10,6 +10,7 @@ import Foundation
 
 
 protocol ForecastRouter {
+    func forecastAlert(_: Error)
     func openCities()
 }
 
@@ -28,4 +29,9 @@ extension Router: ForecastRouter {
             .rootViewController?
             .present(vc, animated: true)
     }
+    
+    func forecastAlert(_ error: Error) {
+        alert(error: error)
+    }
+    
 }

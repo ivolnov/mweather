@@ -52,6 +52,7 @@
 		9ED7E6B722D0B1220046DBE6 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6B622D0B1220046DBE6 /* Array+Utils.swift */; };
 		9ED7E6B922D0BEED0046DBE6 /* ForecastCellViewModelIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6B822D0BEED0046DBE6 /* ForecastCellViewModelIcon.swift */; };
 		9ED7E6BB22D0F5070046DBE6 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7E6BA22D0F5070046DBE6 /* UILabel+Utils.swift */; };
+		9EE2B16122D21230008AE9B0 /* OpenWeatherMapForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE2B16022D21230008AE9B0 /* OpenWeatherMapForecast.swift */; };
 		C5544DED50272B894F1D255A /* Pods_mweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B09623F7369C9FADD7B11C /* Pods_mweather.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		9ED7E6B622D0B1220046DBE6 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		9ED7E6B822D0BEED0046DBE6 /* ForecastCellViewModelIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCellViewModelIcon.swift; sourceTree = "<group>"; };
 		9ED7E6BA22D0F5070046DBE6 /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
+		9EE2B16022D21230008AE9B0 /* OpenWeatherMapForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapForecast.swift; sourceTree = "<group>"; };
 		A2BEC5A6AA2F776A25A5941E /* Pods-mweather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mweather.release.xcconfig"; path = "Pods/Target Support Files/Pods-mweather/Pods-mweather.release.xcconfig"; sourceTree = "<group>"; };
 		D3DD59B13769BCD9DC51E9D8 /* Pods-mweather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mweather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mweather/Pods-mweather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -286,6 +288,7 @@
 		9ED7E69E22D07FD00046DBE6 /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				9EE2B15F22D211DE008AE9B0 /* Model */,
 				9ED7E69F22D07FEE0046DBE6 /* CitiesApi.swift */,
 			);
 			path = Api;
@@ -331,6 +334,14 @@
 				9ED7E6BA22D0F5070046DBE6 /* UILabel+Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9EE2B15F22D211DE008AE9B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9EE2B16022D21230008AE9B0 /* OpenWeatherMapForecast.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +503,7 @@
 				9ED7E6AB22D08FEB0046DBE6 /* ForecastCellView.swift in Sources */,
 				9ED7E69622D07F0A0046DBE6 /* SearchInteractor.swift in Sources */,
 				9ED7E6B722D0B1220046DBE6 /* Array+Utils.swift in Sources */,
+				9EE2B16122D21230008AE9B0 /* OpenWeatherMapForecast.swift in Sources */,
 				9E4237AB22CE9140009A4002 /* Router.swift in Sources */,
 				9E7589C722D122870007655E /* CitiesAddCellView.swift in Sources */,
 				9E7589C222D11F650007655E /* CitiesCellView.swift in Sources */,
