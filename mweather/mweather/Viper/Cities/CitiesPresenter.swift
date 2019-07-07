@@ -53,7 +53,7 @@ fileprivate class Presenter: CitiesPresenter {
     
     func select(at position: Int) {
         // TODO: save choice
-        router.dismiss()
+        router.closeCities()
     }
     
     func refresh() {

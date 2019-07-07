@@ -37,11 +37,6 @@ fileprivate class Interactor: ForecastInteractor {
         api = dependencies.citiesApi()
     }
     
-    deinit {
-        repository.remove(listener: self)
-        api.forget(self)
-    }
-    
     func cities(completion: @escaping (Result<[ForecastInteractorCityModel], Error>) -> ()) {
         self.completion = completion
         repository.add(listener: self)

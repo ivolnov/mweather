@@ -38,11 +38,6 @@ fileprivate class Interactor: CitiesInteractor {
         api = dependencies.citiesApi()
     }
     
-    deinit {
-        repository.remove(listener: self)
-        api.forget(self)
-    }
-    
     func cities(completion: @escaping (Result<[CitiesInteractorCityModel], Error>) -> ()) {
         self.completion = completion
         repository.add(listener: self)

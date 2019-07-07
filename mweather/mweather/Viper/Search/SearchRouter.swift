@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol SearchRouter {
-    
+    func closeSearch()
 }
 
 extension Dependencies {
@@ -22,4 +22,12 @@ extension Dependencies {
 
 extension Router: SearchRouter {
     
+    func closeSearch() {
+        app()?
+            .window?
+            .rootViewController?
+            .presentedViewController?
+            .presentedViewController?
+            .dismiss(animated: true)
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 protocol CitiesRouter {
     func citiesAlert(_: Error)
-    func dismiss()
+    func closeCities()
 }
 
 extension Dependencies {
@@ -21,7 +21,7 @@ extension Dependencies {
 
 extension Router: CitiesRouter {
     
-    func dismiss() {
+    func closeCities() {
         app()?
             .window?
             .rootViewController?

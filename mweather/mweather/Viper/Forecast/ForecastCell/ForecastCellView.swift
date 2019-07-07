@@ -30,11 +30,13 @@ extension Dependencies {
 }
 
 fileprivate class View: ForecastCellView {
-    
-    let iconDimension: CGFloat = 32
-    let labelVerticlaOffset: CGFloat = 32
+ 
     let labelHorizontalOffset: CGFloat = 16
-    let containerHeight: CGFloat = 560
+    let labelVerticlaOffset: CGFloat = 32
+    let fontSizeMedium: CGFloat = 24
+    let iconDimension: CGFloat = 32
+    let fonSizeBig: CGFloat = 64
+    let fontSize: CGFloat = 16
     
     private let refreshControl: UIRefreshControl
     
@@ -65,31 +67,32 @@ fileprivate class View: ForecastCellView {
     weak var presenter: ForecastCellPresenter?
     
     init() {
+        
         refreshControl = UIRefreshControl()
         
-        
-        labelWeather = UILabel.size(16, .cadet, .regular)
-        labelToday = UILabel.size(16, .cadet, .regular)
-        labelCity = UILabel.size(24, .cadet, .regular)
-        
-        labelTodayValue = UILabel.size(16, .black, .regular)
-        labelTemperature = UILabel.size(64, .black, .regular)
+        labelCity = UILabel.size(fontSizeMedium, .cadet, .regular)
+        labelWeather = UILabel.size(fontSize, .cadet, .regular)
+        labelToday = UILabel.size(fontSize, .cadet, .regular)
+       
+        labelTemperature = UILabel.size(fonSizeBig, .black, .regular)
+        labelTodayValue = UILabel.size(fontSize, .black, .regular)
+       
         icon = UIImageView()
         
-        labelFirstTemperature = UILabel.size(16, .black, .regular)
-        labelFirstDay = UILabel.size(16, .cadet, .regular)
+        labelFirstTemperature = UILabel.size(fontSize, .black, .regular)
+        labelFirstDay = UILabel.size(fontSize, .cadet, .regular)
         iconFirst = UIImageView()
         
-        labelSecondTemperature = UILabel.size(16, .black, .regular)
-        labelSecondDay = UILabel.size(16, .cadet, .regular)
+        labelSecondTemperature = UILabel.size(fontSize, .black, .regular)
+        labelSecondDay = UILabel.size(fontSize, .cadet, .regular)
         iconSecond = UIImageView()
         
-        labelThirdTemperature = UILabel.size(16, .black, .regular)
-        labelThirdDay = UILabel.size(16, .cadet, .regular)
+        labelThirdTemperature = UILabel.size(fontSize, .black, .regular)
+        labelThirdDay = UILabel.size(fontSize, .cadet, .regular)
         iconThird = UIImageView()
         
-        labelFourthTemperature = UILabel.size(16, .black, .regular)
-        labelFourthDay = UILabel.size(16, .cadet, .regular)
+        labelFourthTemperature = UILabel.size(fontSize, .black, .regular)
+        labelFourthDay = UILabel.size(fontSize, .cadet, .regular)
         iconFourth = UIImageView()
     }
     

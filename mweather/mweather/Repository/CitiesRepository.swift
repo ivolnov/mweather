@@ -9,7 +9,6 @@
 import Foundation
 
 protocol CitiesRepository {
-    func remove(listener: CitiesRepositoryListener)
     func add(listener: CitiesRepositoryListener)
     func delete(city: String)
     func put(city: City)
@@ -33,10 +32,6 @@ fileprivate class RamRepository: CitiesRepository {
     
     private var listeners: [String: CitiesRepositoryListener] = [:]
     private var cities: [String: City] = [:]
-    
-    func remove(listener: CitiesRepositoryListener) {
-        listeners[listener.hash] = nil
-    }
     
     func add(listener: CitiesRepositoryListener) {
         listeners[listener.hash] = listener

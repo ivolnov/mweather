@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol SearchDependencies {
+protocol SearchDependencies: SharedDependencies {
     func searchInteractor() -> SearchInteractor
     func searchPresenter() -> SearchPresenter
     func searchRouter() -> SearchRouter

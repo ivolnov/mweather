@@ -57,6 +57,7 @@
 		9EE2B16522D23A9A008AE9B0 /* ForecastCellRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE2B16422D23A9A008AE9B0 /* ForecastCellRouter.swift */; };
 		9EE2B16722D2421A008AE9B0 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE2B16622D2421A008AE9B0 /* String+Utils.swift */; };
 		9EE2B16922D24364008AE9B0 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE2B16822D24364008AE9B0 /* Date+Utils.swift */; };
+		9EE2B16B22D25229008AE9B0 /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE2B16A22D25229008AE9B0 /* UITextField+Utils.swift */; };
 		C5544DED50272B894F1D255A /* Pods_mweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B09623F7369C9FADD7B11C /* Pods_mweather.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		9EE2B16422D23A9A008AE9B0 /* ForecastCellRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCellRouter.swift; sourceTree = "<group>"; };
 		9EE2B16622D2421A008AE9B0 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		9EE2B16822D24364008AE9B0 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		9EE2B16A22D25229008AE9B0 /* UITextField+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
 		A2BEC5A6AA2F776A25A5941E /* Pods-mweather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mweather.release.xcconfig"; path = "Pods/Target Support Files/Pods-mweather/Pods-mweather.release.xcconfig"; sourceTree = "<group>"; };
 		D3DD59B13769BCD9DC51E9D8 /* Pods-mweather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mweather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mweather/Pods-mweather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -344,6 +346,7 @@
 				9EE2B16622D2421A008AE9B0 /* String+Utils.swift */,
 				9ED7E6B622D0B1220046DBE6 /* Array+Utils.swift */,
 				9EE2B16822D24364008AE9B0 /* Date+Utils.swift */,
+				9EE2B16A22D25229008AE9B0 /* UITextField+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				9ED7E68C22D07EC80046DBE6 /* SearchViewController.swift in Sources */,
 				9E7589CB22D122ED0007655E /* CitiesAddCellPresenter.swift in Sources */,
 				9ED7E67F22D07E480046DBE6 /* CitiesViewController.swift in Sources */,
+				9EE2B16B22D25229008AE9B0 /* UITextField+Utils.swift in Sources */,
 				9E7589BE22D11F4C0007655E /* CitiesCell.swift in Sources */,
 				9ED7E68122D07E520046DBE6 /* CitiesPresenter.swift in Sources */,
 				9ED7E68922D07E950046DBE6 /* ForecastRouter.swift in Sources */,
