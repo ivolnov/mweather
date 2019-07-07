@@ -101,7 +101,7 @@ extension Interactor: CitiesApiClient {
                              icon: $0.icon,
                              date: $0.date
                 )}
-        return City(name: name, week: week)
+        return City(name: name, created: Date(), week: week)
     }
 }
 
@@ -113,9 +113,3 @@ fileprivate struct Model: ForecastCellInteractorForecastModel {
     let icon: String
     let date: Date
 }
-
-fileprivate let defaults = [
-    "Ulyanovsk",
-    "New York",
-    "Los Angeles"
-]

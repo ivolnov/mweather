@@ -56,7 +56,7 @@ fileprivate class Presenter: ForecastCellPresenter {
     
     private func convert(_ model: ForecastCellInteractorForecastModel) -> ForecastCellViewModel {
         let icon = ForecastCellViewModelIcon(rawValue: model.icon) ?? .clearSky
-        let temperature = "\(model.temperature)º"
+        let temperature = "\(Int(model.temperature))º"
         let weather = model.weather.capitalizeFirstLetter()
         let city = model.city.capitalizeFirstLetter()
         let day = model.date.dayOfWeek() ?? ""
@@ -68,7 +68,6 @@ fileprivate class Presenter: ForecastCellPresenter {
     }
 }
 
-
 fileprivate struct Model: ForecastCellViewModel {
     var icon: ForecastCellViewModelIcon
     let temperature: String
@@ -76,11 +75,3 @@ fileprivate struct Model: ForecastCellViewModel {
     let city: String
     let day: String
 }
-
-fileprivate let hardcode: [ForecastCellViewModel] = [
-    Model(icon: .rain, temperature: "20º", weather: "rain", city: "London", day: "Tuesday"),
-    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Wednesday"),
-    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Thursday"),
-    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Friday"),
-    Model(icon: .clearSky, temperature: "30º", weather: "sunny", city: "London", day: "Saturday")
-]

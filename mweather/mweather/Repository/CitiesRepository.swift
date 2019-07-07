@@ -32,7 +32,7 @@ fileprivate class RamRepository: CitiesRepository {
     static let shared = RamRepository()
     
     private var listeners: [String: CitiesRepositoryListener] = [:]
-    private var cities: [City] = []
+    private var cities: [String: City] = [:]
     
     func remove(listener: CitiesRepositoryListener) {
         listeners[listener.hash] = nil
@@ -44,17 +44,19 @@ fileprivate class RamRepository: CitiesRepository {
     }
     
     func delete(city: String) {
-        cities = cities.filter { $0.name != city }
+        cities[city] = nil
         notifyAll()
     }
     
     func put(city: City) {
-        cities.append(city)
+        cities[city.name] = city
         notifyAll()
     }
     
     private func notify(_ listener: CitiesRepositoryListener) {
-        let copy = cities.map { $0 }
+        let copy = cities
+            .map { $0.value }
+            .sorted { $0.created < $1.created }
         listener.current(cities: copy)
     }
     

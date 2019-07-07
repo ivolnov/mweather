@@ -10,5 +10,6 @@ import Foundation
 
 struct City {
     let name: String
+    let created: Date
     let week: [Forecast]
 }
