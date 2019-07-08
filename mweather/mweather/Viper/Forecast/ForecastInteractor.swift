@@ -13,6 +13,7 @@ protocol ForecastInteractor {
 }
 
 protocol ForecastInteractorCityModel {
+    var chosen: Bool { get }
     var name: String { get }
 }
 
@@ -68,7 +69,7 @@ extension Interactor: CitiesRepositoryListener {
     }
     
     private func convert(_ city: City) -> ForecastInteractorCityModel {
-        let model = Model(name: city.name)
+        let model = Model(chosen: city.chosen, name: city.name)
         return model
     }
 }
@@ -92,11 +93,12 @@ extension Interactor: CitiesApiClient {
                              icon: $0.icon,
                              date: $0.date
                 )}
-        return City(name: name, created: Date(), week: week)
+        return City(chosen: false, name: name, created: Date(), week: week)
     }
 }
 
 fileprivate struct Model: ForecastInteractorCityModel {
+    let chosen: Bool
     let name: String
 }
 

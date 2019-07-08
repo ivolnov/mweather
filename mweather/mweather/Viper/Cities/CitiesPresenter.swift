@@ -53,11 +53,19 @@ fileprivate class Presenter: CitiesPresenter {
     }
     
     func select(at position: Int) {
-        // TODO: save choice
-        if position == models?.count {
+        
+        guard let models = models else {
             return
         }
-        router.closeCities()
+        
+        if position == models.count {
+            return
+        }
+        
+        if let model = models.get(at: position) {
+            interactor.choose(model)
+            router.closeCities()
+        }
     }
     
     func delete(at position: Int) {

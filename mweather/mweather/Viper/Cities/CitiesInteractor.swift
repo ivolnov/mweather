@@ -11,6 +11,7 @@ import Foundation
 protocol CitiesInteractor {
     func cities(completion: @escaping (Result<[CitiesInteractorCityModel], Error>) -> ())
     func remove(_ model: CitiesInteractorCityModel)
+    func choose(_ model: CitiesInteractorCityModel)
 }
 
 protocol CitiesInteractorCityModel {
@@ -46,6 +47,10 @@ fileprivate class Interactor: CitiesInteractor {
     
     func remove(_ model: CitiesInteractorCityModel) {
         repository.delete(city: model.name)
+    }
+    
+    func choose(_ model: CitiesInteractorCityModel) {
+        repository.choose(city: model.name)
     }
 }
 
@@ -90,7 +95,7 @@ extension Interactor: CitiesApiClient {
                              icon: $0.icon,
                              date: $0.date
                 )}
-        return City(name: name, created: Date(), week: week)
+        return City(chosen: false, name: name, created: Date(), week: week)
     }
 }
 

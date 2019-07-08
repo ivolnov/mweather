@@ -66,7 +66,7 @@ fileprivate class Interactor: SearchInteractor {
                              icon: $0.icon,
                              date: $0.date
                 )}
-        return City(name: name, created: Date(), week: week)
+        return City(chosen: false, name: name, created: Date(), week: week)
     }
 }
 

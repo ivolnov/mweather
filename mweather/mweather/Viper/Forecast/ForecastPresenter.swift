@@ -56,11 +56,29 @@ fileprivate class Presenter: ForecastPresenter {
             
             switch result {
             case .success(let models):
-                self?.models = models
-                self?.view.reload()
+                guard let strong = self else {
+                    return
+                }
+        
+                strong.models = models
+                strong.view.reload()
+                
+                if let chosen = strong.chosen(in: models) {
+                    strong.view.choose(at: chosen)
+                }
+                
             case .failure(let error):
                 self?.router.forecastAlert(error)
             }
         }
+    }
+    
+    private func chosen(in models: [ForecastInteractorCityModel]) -> Int? {
+        let row = models
+            .enumerated()
+            .filter { $0.element.chosen }
+            .map { $0.offset}
+            .first
+        return row
     }
 }

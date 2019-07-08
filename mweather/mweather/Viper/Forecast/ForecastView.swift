@@ -12,6 +12,7 @@ protocol ForecastView {
     var presenter: ForecastPresenter? { get set }
     var collectionView: UICollectionView { get }
     func show(activity: Bool)
+    func choose(at: Int)
     func add(to: UIView)
     func reload()
     
@@ -105,6 +106,12 @@ fileprivate class View: ForecastView {
             ? activityIndicator.startAnimating()
             : activityIndicator.stopAnimating()
         
+    }
+    
+    func choose(at row: Int) {
+        collectionView.scrollToItem(at: IndexPath(row: row, section: 0),
+                                    at: .centeredHorizontally,
+                                    animated: false)
     }
     
     func reload() {

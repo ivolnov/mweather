@@ -11,6 +11,7 @@ import Foundation
 protocol CitiesRepository {
     func add(listener: CitiesRepositoryListener)
     func delete(city: String)
+    func choose(city: String)
     func put(city: City)
 }
 

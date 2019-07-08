@@ -33,6 +33,21 @@ fileprivate class UserDefaultsCitiesRepository: CitiesRepository {
         notifyAll(with: cities)
     }
     
+    func choose(city: String) {
+        let old = read()
+        if let chosen = old[city] {
+            var cities: [String: City] = [:]
+            for city in old.values {
+                cities[city.name] = city.name == chosen.name
+                    ? copy(city, chosen: true)
+                    : copy(city, chosen: false)
+            }
+            write(cities)
+            notifyAll(with: cities)
+        }
+ 
+    }
+    
     func put(city: City) {
         var cities = read()
         var city = city
@@ -81,9 +96,18 @@ fileprivate class UserDefaultsCitiesRepository: CitiesRepository {
     }
     
     private func mergeDate(from old: City, to new: City) -> City {
-        let city = City(name: new.name,
-                    created: old.created,
-                    week: new.week)
+        let city = City(chosen: false,
+                        name: new.name,
+                        created: old.created,
+                        week: new.week)
+        return city
+    }
+    
+    private func copy(_ old: City, chosen: Bool) -> City {
+        let city = City(chosen: chosen,
+                        name: old.name,
+                        created: old.created,
+                        week: old .week)
         return city
     }
 }
