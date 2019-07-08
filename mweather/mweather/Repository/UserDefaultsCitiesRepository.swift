@@ -35,6 +35,10 @@ fileprivate class UserDefaultsCitiesRepository: CitiesRepository {
     
     func put(city: City) {
         var cities = read()
+        var city = city
+        if let current = cities[city.name] {
+            city = mergeDate(from: current, to: city)
+        }
         cities[city.name] = city
         write(cities)
         notifyAll(with: cities)
@@ -74,5 +78,12 @@ fileprivate class UserDefaultsCitiesRepository: CitiesRepository {
         for listener in listeners.values {
             notify(listener, with: cities)
         }
+    }
+    
+    private func mergeDate(from old: City, to new: City) -> City {
+        let city = City(name: new.name,
+                    created: old.created,
+                    week: new.week)
+        return city
     }
 }
