@@ -10,6 +10,7 @@ import Foundation
 
 protocol CitiesInteractor {
     func cities(completion: @escaping (Result<[CitiesInteractorCityModel], Error>) -> ())
+    func refresh(cities: [CitiesInteractorCityModel])
     func remove(_ model: CitiesInteractorCityModel)
     func choose(_ model: CitiesInteractorCityModel)
 }
@@ -51,6 +52,12 @@ fileprivate class Interactor: CitiesInteractor {
     
     func choose(_ model: CitiesInteractorCityModel) {
         repository.choose(city: model.name)
+    }
+    
+    func refresh(cities: [CitiesInteractorCityModel]) {
+        for city in cities {
+            api.search(city.name, for: self)
+        }
     }
 }
 

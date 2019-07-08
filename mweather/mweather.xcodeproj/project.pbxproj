@@ -331,8 +331,8 @@
 			children = (
 				9ED7E6B822D0BEED0046DBE6 /* ForecastCellViewModelIcon.swift */,
 				9ED7E6AC22D091C00046DBE6 /* ForecastCellDependenceis.swift */,
-				9ED7E6B422D0AC6E0046DBE6 /* ForecastCellPresenter.swift */,
 				9EE2B16222D23A8D008AE9B0 /* ForecastCellInteractor.swift */,
+				9ED7E6B422D0AC6E0046DBE6 /* ForecastCellPresenter.swift */,
 				9EE2B16422D23A9A008AE9B0 /* ForecastCellRouter.swift */,
 				9ED7E6AA22D08FEB0046DBE6 /* ForecastCellView.swift */,
 				9ED7E6A822D08FDA0046DBE6 /* ForecastCell.swift */,

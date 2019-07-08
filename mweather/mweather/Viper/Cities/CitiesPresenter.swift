@@ -75,8 +75,12 @@ fileprivate class Presenter: CitiesPresenter {
     }
     
     func refresh() {
-        view.reload()
-        view.hideRefreshControl()
+        var cities = models ?? []
+        if let standard = AppDelegate.defaults.first, cities.isEmpty {
+            cities = [InteractorModel(temperature: 0, name: standard)]
+        }
+        
+        interactor.refresh(cities: cities)
     }
     
     private func load() {
@@ -89,6 +93,8 @@ fileprivate class Presenter: CitiesPresenter {
             case .failure(let error):
                 self?.router.citiesAlert(error)
             }
+            
+            self?.view.hideRefreshControl()
         }
     }
     
@@ -97,6 +103,11 @@ fileprivate class Presenter: CitiesPresenter {
         let city = model.name.capitalizeFirstLetter()
         return Model(temperature: temperature, city: city)
     }
+}
+
+fileprivate struct InteractorModel: CitiesInteractorCityModel {
+    var temperature: Double
+    var name: String
 }
 
 fileprivate struct Model: CitiesPresenterModel {
