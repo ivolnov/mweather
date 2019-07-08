@@ -52,24 +52,29 @@ fileprivate class Presenter: ForecastPresenter {
     }
     
     private func load() {
+        
+        view.show(activity: true)
+        
         interactor.cities { [weak self] result in
-            
+
             switch result {
             case .success(let models):
                 guard let strong = self else {
                     return
                 }
-        
+
                 strong.models = models
                 strong.view.reload()
-                
+
                 if let chosen = strong.chosen(in: models) {
                     strong.view.choose(at: chosen)
                 }
-                
+
             case .failure(let error):
                 self?.router.forecastAlert(error)
             }
+
+            self?.view.show(activity: false)
         }
     }
     

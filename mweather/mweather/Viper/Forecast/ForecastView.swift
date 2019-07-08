@@ -93,7 +93,8 @@ fileprivate class View: ForecastView {
             make.centerY.equalToSuperview()
         }
         
-        activityIndicator.tintColor = .cadet
+        activityIndicator.style = .whiteLarge
+        activityIndicator.color = .cadet
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
