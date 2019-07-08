@@ -56,13 +56,14 @@ fileprivate class Presenter: ForecastPresenter {
         view.show(activity: true)
         
         interactor.cities { [weak self] result in
+            
+            guard let strong = self else {
+                return
+            }
 
             switch result {
             case .success(let models):
-                guard let strong = self else {
-                    return
-                }
-
+                
                 strong.models = models
                 strong.view.reload()
 
@@ -71,7 +72,7 @@ fileprivate class Presenter: ForecastPresenter {
                 }
 
             case .failure(let error):
-                self?.router.forecastAlert(error)
+                strong.router.forecastAlert(error)
             }
 
             self?.view.show(activity: false)

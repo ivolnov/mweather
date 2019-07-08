@@ -317,9 +317,7 @@ fileprivate class View: ForecastCellView {
     }
     
     @objc private func onRefresh() {
-        if let city = labelCity.text {
-            presenter?.refresh(for: city)
-        }
+        presenter?.refresh(for: labelCity.text ?? "noop")
     }
 }
 

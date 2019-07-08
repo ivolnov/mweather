@@ -34,11 +34,15 @@ fileprivate class Presenter: ForecastCellPresenter {
     }
     
     func refresh(for city: String) {
-        
         view.hideRefreshControl()
     }
     
     func load(for city: String) {
+        
+        if city == "noop" {
+            view.set(days: [placeholder])
+            return
+        }
         
         interactor.city(named: city) { [weak self] result in
 
@@ -75,3 +79,9 @@ fileprivate struct Model: ForecastCellViewModel {
     let city: String
     let day: String
 }
+
+fileprivate let placeholder = Model(icon: .clearSky,
+                                    temperature: ":(",
+                                    weather: "Something went wrong...",
+                                    city: "",
+                                    day: "")

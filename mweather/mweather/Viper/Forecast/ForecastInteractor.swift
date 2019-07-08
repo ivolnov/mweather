@@ -65,7 +65,11 @@ extension Interactor: CitiesRepositoryListener {
         
         
         let models = cities.map { convert($0) }
-        completion?(.success(models))
+        let result = models.isEmpty
+            ? [Model(chosen: true, name: "noop")]
+            : models
+        
+        completion?(.success(result))
     }
     
     private func convert(_ city: City) -> ForecastInteractorCityModel {

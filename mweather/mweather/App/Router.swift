@@ -23,7 +23,7 @@ extension Router {
         
         let alert = UIAlertController(
             title: ":(",
-            message: "Что-то пошло не так...",
+            message: "Something went wrong...",
             preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default)
         alert.addAction(ok)
