@@ -14,16 +14,3 @@ extension UIColor {
     static let manatee = #colorLiteral(red: 0.5921568627, green: 0.5921568627, blue: 0.5921568627, alpha: 1)
     static let cadet = #colorLiteral(red: 0.3490196078, green: 0.3725490196, blue: 0.4392156863, alpha: 1)
 }
-
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(red:   self.random(),
-                       green: self.random(),
-                       blue:  self.random(),
-                       alpha: 1.0)
-    }
-    
-    private static func random() -> CGFloat {
-        return CGFloat( arc4random() ) / CGFloat(UInt32.max)
-    }
-}

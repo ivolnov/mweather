@@ -47,9 +47,9 @@ fileprivate class View: CitiesAddCellView {
         
         buttonAdd.addTarget(self, action: #selector(onButtonAddTap), for: .touchUpInside)
         buttonAdd.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().offset(buttonOffset)
             make.trailing.equalToSuperview().inset(buttonOffset)
-            
+            make.bottom.equalToSuperview().inset(buttonOffset)
+            make.top.equalToSuperview().offset(buttonOffset)
             make.width.height.equalTo(buttonDimension)
         }
     }

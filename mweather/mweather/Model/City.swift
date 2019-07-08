@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct City {
+struct City: Codable {
     let name: String
     let created: Date
     let week: [Forecast]

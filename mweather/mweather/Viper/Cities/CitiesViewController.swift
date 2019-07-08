@@ -67,7 +67,8 @@ extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return true
+        let last = tableView.numberOfRows(inSection: 0) - 1
+        return indexPath.row != last
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E02FE3922D2F7AF00F81D75 /* UserDefaultsCitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E02FE3822D2F7AF00F81D75 /* UserDefaultsCitiesRepository.swift */; };
 		9E42378B22CE876F009A4002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E42378A22CE876F009A4002 /* AppDelegate.swift */; };
 		9E42378D22CE876F009A4002 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E42378C22CE876F009A4002 /* ForecastViewController.swift */; };
 		9E42379222CE8770009A4002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E42379122CE8770009A4002 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		95B09623F7369C9FADD7B11C /* Pods_mweather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mweather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E02FE3822D2F7AF00F81D75 /* UserDefaultsCitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCitiesRepository.swift; sourceTree = "<group>"; };
 		9E42378722CE876F009A4002 /* mweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E42378A22CE876F009A4002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E42378C22CE876F009A4002 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		9ED7E69B22D07F660046DBE6 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				9E02FE3822D2F7AF00F81D75 /* UserDefaultsCitiesRepository.swift */,
 				9ED7E69C22D07FCA0046DBE6 /* CitiesRepository.swift */,
 			);
 			path = Repository;
@@ -340,13 +343,13 @@
 		9ED7E6AF22D0A0990046DBE6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9EE2B16A22D25229008AE9B0 /* UITextField+Utils.swift */,
 				9ED7E6B022D0A0AD0046DBE6 /* UIButton+Utils.swift */,
 				9ED7E6B222D0A28D0046DBE6 /* UIColor+Utils.swift */,
 				9ED7E6BA22D0F5070046DBE6 /* UILabel+Utils.swift */,
 				9EE2B16622D2421A008AE9B0 /* String+Utils.swift */,
 				9ED7E6B622D0B1220046DBE6 /* Array+Utils.swift */,
 				9EE2B16822D24364008AE9B0 /* Date+Utils.swift */,
-				9EE2B16A22D25229008AE9B0 /* UITextField+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				9ED7E6BB22D0F5070046DBE6 /* UILabel+Utils.swift in Sources */,
 				9E7589CD22D123000007655E /* CitiesAddCellRouter.swift in Sources */,
 				9EE2B16322D23A8D008AE9B0 /* ForecastCellInteractor.swift in Sources */,
+				9E02FE3922D2F7AF00F81D75 /* UserDefaultsCitiesRepository.swift in Sources */,
 				9E7589C022D11F5D0007655E /* CitiesCellDependencies.swift in Sources */,
 				9ED7E6A422D080750046DBE6 /* City.swift in Sources */,
 				9ED7E68C22D07EC80046DBE6 /* SearchViewController.swift in Sources */,

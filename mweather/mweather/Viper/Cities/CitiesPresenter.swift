@@ -30,7 +30,7 @@ extension Dependencies {
 
 fileprivate class Presenter: CitiesPresenter {
     
-    private var models: [CitiesInteractorCityModel] = []
+    private var models: [CitiesInteractorCityModel]?
     private let interactor: CitiesInteractor
     private let router: CitiesRouter
     var view: CitiesView
@@ -44,21 +44,24 @@ fileprivate class Presenter: CitiesPresenter {
     
     func cities() -> [CitiesPresenterModel] {
         
-        if models.isEmpty {
+        if models == nil {
             load()
         }
         
-        let cities = models.map { convert($0) }
-        return cities
+        let cities = models?.map { convert($0) }
+        return cities ?? []
     }
     
     func select(at position: Int) {
         // TODO: save choice
+        if position == models?.count {
+            return
+        }
         router.closeCities()
     }
     
     func delete(at position: Int) {
-        if let model = models.get(at: position) {
+        if let model = models?.get(at: position) {
             interactor.remove(model)
         }
     }

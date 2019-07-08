@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Forecast {
-    
+struct Forecast: Codable {
     let temperature: Double
     let weather: String
     let icon: String
