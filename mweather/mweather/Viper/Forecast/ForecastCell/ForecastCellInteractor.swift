@@ -10,6 +10,7 @@ import Foundation
 
 protocol ForecastCellInteractor {
     func city(named: String, completion: @escaping (Result<[ForecastCellInteractorForecastModel], Error>) -> ())
+    func refresh(city: String)
 }
 
 protocol ForecastCellInteractorForecastModel {
@@ -47,6 +48,10 @@ fileprivate class Interactor: ForecastCellInteractor {
         self.city = named
         repository.add(listener: self)
     }
+    
+    func refresh(city: String) {
+        api.search(city, for: self)
+    }
 }
 
 extension Interactor: CitiesRepositoryListener {
@@ -83,7 +88,7 @@ extension Interactor: CitiesRepositoryListener {
 
 extension Interactor: CitiesApiClient {
     
-    func success(with model: CitiesApiCityModel) {
+    func citiesApiSuccess(with model: CitiesApiCityModel) {
         let city = convert(model)
         repository.put(city: city)
     }

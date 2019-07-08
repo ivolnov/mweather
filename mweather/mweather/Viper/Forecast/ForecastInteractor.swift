@@ -55,7 +55,7 @@ extension Interactor: CitiesRepositoryListener {
         if coldStart {
             coldStart = false
             let queries = cities.isEmpty
-                ? defaults
+                ? AppDelegate.defaults
                 : cities.map { $0.name }
             
             for query in queries {
@@ -80,7 +80,7 @@ extension Interactor: CitiesRepositoryListener {
 
 extension Interactor: CitiesApiClient {
     
-    func success(with model: CitiesApiCityModel) {
+    func citiesApiSuccess(with model: CitiesApiCityModel) {
         let city = convert(model)
         repository.put(city: city)
     }
@@ -105,9 +105,3 @@ fileprivate struct Model: ForecastInteractorCityModel {
     let chosen: Bool
     let name: String
 }
-
-fileprivate let defaults = [
-    "Ulyanovsk",
-    "New York",
-    "Los Angeles"
-]

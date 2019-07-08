@@ -94,7 +94,7 @@ extension Interactor: CitiesRepositoryListener {
 
 extension Interactor: CitiesApiClient {
     
-    func success(with model: CitiesApiCityModel) {
+    func citiesApiSuccess(with model: CitiesApiCityModel) {
         let forecasts = convert(model: model)
         searchCompletion?(.success(forecasts))
     }

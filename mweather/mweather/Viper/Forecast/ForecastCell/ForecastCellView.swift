@@ -317,7 +317,14 @@ fileprivate class View: ForecastCellView {
     }
     
     @objc private func onRefresh() {
-        presenter?.refresh(for: labelCity.text ?? "noop")
+        
+        let current = labelCity.text ?? ""
+        let city = current.isEmpty
+            ? AppDelegate.defaults.first
+            : current
+        if let city = city {
+            presenter?.refresh(for: city)
+        }
     }
 }
 

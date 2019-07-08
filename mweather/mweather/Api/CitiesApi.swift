@@ -14,7 +14,7 @@ protocol CitiesApi {
 }
 
 protocol CitiesApiClient {
-    func success(with: CitiesApiCityModel)
+    func citiesApiSuccess(with: CitiesApiCityModel)
     func citiesApiFailure(with: Error)
     var hash: String { get }
 }
@@ -82,7 +82,7 @@ fileprivate class Api: CitiesApi {
                     return
                 }
                 
-                consumer.success(with: model)
+                consumer.citiesApiSuccess(with: model)
                 
             case .failure(let error):
                 consumer.citiesApiFailure(with: error)

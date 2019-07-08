@@ -34,7 +34,7 @@ fileprivate class Presenter: ForecastCellPresenter {
     }
     
     func refresh(for city: String) {
-        view.hideRefreshControl()
+        interactor.refresh(city: city)
     }
     
     func load(for city: String) {
@@ -55,6 +55,8 @@ fileprivate class Presenter: ForecastCellPresenter {
             case .failure(let error):
                 self?.router.forecastCellAlert(error)
             }
+            
+            self?.view.hideRefreshControl()
         }
     }
     

@@ -10,6 +10,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    static let defaults = [
+        "Ulyanovsk",
+        "New York",
+        "Los Angeles"
+    ]
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -33,4 +39,5 @@ extension Router: AppRouter {
         app()?.window?.makeKeyAndVisible()
     }
 }
+
 

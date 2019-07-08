@@ -78,7 +78,7 @@ extension Interactor: CitiesRepositoryListener {
 extension Interactor: CitiesApiClient {
     
 
-    func success(with model: CitiesApiCityModel) {
+    func citiesApiSuccess(with model: CitiesApiCityModel) {
         let city = convert(model)
         repository.put(city: city)
     }
